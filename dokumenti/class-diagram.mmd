@@ -1,0 +1,181 @@
+classDiagram
+  class AppUser {
+    +int Id
+    +string Email
+    +string PasswordHash
+    +string FirstName
+    +string LastName
+    +UserRole Role
+  }
+  class Organizer {
+    +int Id
+    +int UserId
+    +string Name
+    +string ContactEmail
+    +string Description
+  }
+  class EventCategory {
+    +int Id
+    +string Name
+    +string Description
+  }
+  class City {
+    +int Id
+    +string Name
+    +string PostalCode
+    +string Country
+  }
+  class Venue {
+    +int Id
+    +int CityId
+    +string Name
+    +string Address
+  }
+  class Sector {
+    +int Id
+    +int VenueId
+    +string Name
+  }
+  class SeatCategory {
+    +int Id
+    +string Name
+    +string ColorCode
+    +string Description
+  }
+  class Seat {
+    +int Id
+    +int SectorId
+    +int SeatCategoryId
+    +string RowLabel
+    +int Number
+  }
+  class Event {
+    +int Id
+    +int OrganizerId
+    +int EventCategoryId
+    +int VenueId
+    +string Title
+    +string Description
+    +DateTime StartsAtUtc
+    +EventStatus Status
+    +string ImagePath
+  }
+  class EventPrice {
+    +int Id
+    +int EventId
+    +int SeatCategoryId
+    +int CurrencyId
+    +decimal Price
+  }
+  class Currency {
+    +int Id
+    +string Code
+    +string Name
+  }
+  class ExchangeRate {
+    +int Id
+    +int CurrencyId
+    +decimal Rate
+    +DateTime ValidFromUtc
+  }
+  class Reservation {
+    +int Id
+    +int UserId
+    +int EventId
+    +DateTime CreatedAtUtc
+    +DateTime ExpiresAtUtc
+    +ReservationStatus Status
+  }
+  class ReservationSeat {
+    +int Id
+    +int ReservationId
+    +int EventId
+    +int SeatId
+    +bool IsActive
+    +decimal Price
+    +int CurrencyId
+  }
+  class PromoCode {
+    +int Id
+    +string Code
+    +int DiscountPercent
+    +DateTime ValidFromUtc
+    +DateTime ValidToUtc
+    +int MaxUses
+    +int UsedCount
+    +int EventId
+  }
+  class Order {
+    +int Id
+    +int UserId
+    +int ReservationId
+    +int PromoCodeId
+    +int CurrencyId
+    +decimal Total
+    +decimal AppliedRate
+    +OrderStatus Status
+  }
+  class Payment {
+    +int Id
+    +int OrderId
+    +decimal Amount
+    +int CurrencyId
+    +decimal AppliedRate
+    +PaymentStatus Status
+    +DateTime PaidAtUtc
+    +string ProviderReference
+  }
+  class Ticket {
+    +int Id
+    +int OrderId
+    +int EventId
+    +int SeatId
+    +Guid Code
+    +TicketStatus Status
+    +DateTime UsedAtUtc
+    +int ScannedByUserId
+  }
+  class Refund {
+    +int Id
+    +int PaymentId
+    +decimal Amount
+    +int CurrencyId
+    +decimal AppliedRate
+    +string Reason
+    +DateTime CreatedAtUtc
+  }
+  class AppSetting {
+    +int Id
+    +string Key
+    +string Value
+  }
+  AppUser "1" -- "0..1" Organizer
+  Organizer "1" -- "0..*" Event
+  EventCategory "1" -- "0..*" Event
+  City "1" -- "0..*" Venue
+  Venue "1" -- "1..*" Sector
+  Venue "1" -- "0..*" Event
+  Sector "1" -- "1..*" Seat
+  SeatCategory "1" -- "0..*" Seat
+  SeatCategory "1" -- "0..*" EventPrice
+  Event "1" -- "1..*" EventPrice
+  Currency "1" -- "0..*" EventPrice
+  Currency "1" -- "0..*" ExchangeRate
+  AppUser "1" -- "0..*" Reservation
+  Event "1" -- "0..*" Reservation
+  Reservation "1" -- "1..*" ReservationSeat
+  Seat "1" -- "0..*" ReservationSeat
+  Reservation "1" -- "0..1" Order
+  AppUser "1" -- "0..*" Order
+  PromoCode "0..1" -- "0..*" Order
+  Event "0..1" -- "0..*" PromoCode
+  Order "1" -- "0..*" Payment
+  Order "1" -- "1..*" Ticket
+  Seat "1" -- "0..*" Ticket
+  Event "1" -- "0..*" Ticket
+  Payment "1" -- "0..*" Refund
+  Currency "1" -- "0..*" Order
+Currency "1" -- "0..*" Payment
+Currency "1" -- "0..*" Refund
+Currency "1" -- "0..*" ReservationSeat
+AppUser "0..1" -- "0..*" Ticket
