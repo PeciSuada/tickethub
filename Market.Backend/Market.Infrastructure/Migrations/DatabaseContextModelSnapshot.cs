@@ -156,43 +156,6 @@ namespace Market.Infrastructure.Migrations
                     b.ToTable("Promotions", (string)null);
                 });
 
-            modelBuilder.Entity("Market.Domain.Entities.Catalog.UserProductFavoriteEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FavoritedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId", "ProductId")
-                        .IsUnique()
-                        .HasFilter("[IsDeleted] = 0");
-
-                    b.ToTable("UserProductFavorites", (string)null);
-                });
-
             modelBuilder.Entity("Market.Domain.Entities.Finance.CurrencyEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -652,25 +615,6 @@ namespace Market.Infrastructure.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Market.Domain.Entities.Catalog.UserProductFavoriteEntity", b =>
-                {
-                    b.HasOne("Market.Domain.Entities.Catalog.ProductEntity", "Product")
-                        .WithMany("FavoritedByUsers")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Market.Domain.Entities.Identity.MarketUserEntity", "User")
-                        .WithMany("FavoriteProducts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Market.Domain.Entities.Finance.ExchangeRateEntity", b =>
                 {
                     b.HasOne("Market.Domain.Entities.Finance.CurrencyEntity", "Currency")
@@ -739,11 +683,6 @@ namespace Market.Infrastructure.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("Market.Domain.Entities.Catalog.ProductEntity", b =>
-                {
-                    b.Navigation("FavoritedByUsers");
-                });
-
             modelBuilder.Entity("Market.Domain.Entities.Finance.CurrencyEntity", b =>
                 {
                     b.Navigation("ExchangeRates");
@@ -751,8 +690,6 @@ namespace Market.Infrastructure.Migrations
 
             modelBuilder.Entity("Market.Domain.Entities.Identity.MarketUserEntity", b =>
                 {
-                    b.Navigation("FavoriteProducts");
-
                     b.Navigation("RefreshTokens");
                 });
 
