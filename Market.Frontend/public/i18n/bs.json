@@ -98,7 +98,6 @@
       "MY_ACCOUNT": "Moj nalog",
       "LOGIN": "Prijava",
       "CONVERTER": "Konvertor valuta",
-      "CART": "Korpa",
       "MY_ORDERS": "Moje narudžbe",
       "MY_PROFILE": "Moj profil",
       "ADMIN_PANEL": "Admin panel",
@@ -106,8 +105,8 @@
     }
   },
   "LANDING": {
-    "HERO_TITLE": "Vaš online market",
-    "HERO_DESCRIPTION": "Pregledajte ponudu, dodajte proizvode u korpu i naručite u nekoliko koraka. Cijene možete vidjeti i u drugim valutama.",
+    "HERO_TITLE": "Karte za vaše omiljene događaje",
+    "HERO_DESCRIPTION": "Pregledajte događaje, odaberite sjedišta i kupite karte u nekoliko koraka. Cijene možete vidjeti i u drugim valutama.",
     "BROWSE_PRODUCTS": "Pregledaj proizvode",
     "STATS_PRODUCTS": "{{count}} proizvoda",
     "STATS_CATEGORIES": "{{count}} kategorija",
@@ -122,7 +121,7 @@
     "ALL_PRODUCTS": "Svi proizvodi",
     "NO_PRODUCTS": "Trenutno nema proizvoda u ponudi.",
     "CTA_TITLE": "Spremni za kupovinu?",
-    "CTA_TEXT": "Prijavite se da biste naručili i pratili svoje narudžbe.",
+    "CTA_TEXT": "Prijavite se da biste kupili karte i pratili svoje narudžbe.",
     "CTA_BUTTON": "Prijavite se"
   },
   "SEARCH": {
@@ -136,46 +135,7 @@
     "NO_RESULTS": "Nema proizvoda koji odgovaraju pretrazi."
   },
   "PRODUCT_CARD": {
-    "ADD_TO_CART": "Dodaj u korpu",
     "OUT_OF_STOCK": "Nema na stanju"
-  },
-  "CART": {
-    "TITLE": "Korpa",
-    "ADDED": "\"{{name}}\" je dodan u korpu.",
-    "EMPTY_TITLE": "Korpa je prazna",
-    "EMPTY_TEXT": "Dodajte proizvode u korpu da biste naručili.",
-    "CONTINUE_SHOPPING": "Nastavi kupovinu",
-    "CHECKOUT": "Nastavi na narudžbu",
-    "REMOVE": "Ukloni iz korpe",
-    "INCREASE": "Povećaj količinu",
-    "DECREASE": "Smanji količinu",
-    "QUANTITY": "Količina",
-    "SUMMARY": "Pregled",
-    "ITEMS_COUNT": "Broj artikala",
-    "TOTAL_QUANTITY": "Ukupna količina",
-    "TOTAL": "Ukupno",
-    "PRICE_NOTE": "Cijene u korpi su informativne; konačan iznos (sa popustima) računa se pri narudžbi."
-  },
-  "CHECKOUT": {
-    "TITLE": "Narudžba",
-    "EMPTY_TEXT": "Dodajte proizvode u korpu prije narudžbe.",
-    "STEP_CART": "Korpa",
-    "STEP_DETAILS": "Napomena",
-    "STEP_SUBMIT": "Potvrda",
-    "BACK_TO_CART": "Nazad na korpu",
-    "NEXT": "Dalje",
-    "BACK": "Nazad",
-    "NOTE_LABEL": "Napomena (opciono)",
-    "NOTE_PLACEHOLDER": "Npr. vrijeme dostave, sprat...",
-    "CONFIRM_LABEL": "Provjerio/la sam narudžbu i želim je poslati.",
-    "CONFIRM_REQUIRED": "Potvrdite narudžbu da biste nastavili.",
-    "SUBMIT": "Naruči",
-    "SUBMITTING": "Slanje narudžbe...",
-    "SUCCESS": "Narudžba je uspješno kreirana.",
-    "DELIVERY_ADDRESS": "Adresa za dostavu",
-    "ADDRESS_MISSING": "Adresa ili grad nisu uneseni.",
-    "ADD_ADDRESS": "Unesite ih u profilu",
-    "ADDRESS_NOTE": "Narudžba se dostavlja na adresu iz vašeg profila (Moj profil)."
   },
   "CURRENCY": {
     "SELECT": "Valuta za prikaz cijena",

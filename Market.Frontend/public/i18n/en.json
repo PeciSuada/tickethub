@@ -98,7 +98,6 @@
       "MY_ACCOUNT": "My account",
       "LOGIN": "Log in",
       "CONVERTER": "Currency converter",
-      "CART": "Cart",
       "MY_ORDERS": "My orders",
       "MY_PROFILE": "My profile",
       "ADMIN_PANEL": "Admin panel",
@@ -106,8 +105,8 @@
     }
   },
   "LANDING": {
-    "HERO_TITLE": "Your online market",
-    "HERO_DESCRIPTION": "Browse our products, add them to your cart and order in a few steps. Prices can also be shown in other currencies.",
+    "HERO_TITLE": "Tickets for your favorite events",
+    "HERO_DESCRIPTION": "Browse events, choose your seats and buy tickets in a few steps. Prices can also be shown in other currencies.",
     "BROWSE_PRODUCTS": "Browse products",
     "STATS_PRODUCTS": "{{count}} products",
     "STATS_CATEGORIES": "{{count}} categories",
@@ -122,7 +121,7 @@
     "ALL_PRODUCTS": "All products",
     "NO_PRODUCTS": "There are no products at the moment.",
     "CTA_TITLE": "Ready to shop?",
-    "CTA_TEXT": "Log in to place orders and track them.",
+    "CTA_TEXT": "Log in to buy tickets and track your orders.",
     "CTA_BUTTON": "Log in"
   },
   "SEARCH": {
@@ -136,46 +135,7 @@
     "NO_RESULTS": "No products match your search."
   },
   "PRODUCT_CARD": {
-    "ADD_TO_CART": "Add to cart",
     "OUT_OF_STOCK": "Out of stock"
-  },
-  "CART": {
-    "TITLE": "Cart",
-    "ADDED": "\"{{name}}\" was added to the cart.",
-    "EMPTY_TITLE": "Your cart is empty",
-    "EMPTY_TEXT": "Add products to your cart to place an order.",
-    "CONTINUE_SHOPPING": "Continue shopping",
-    "CHECKOUT": "Proceed to checkout",
-    "REMOVE": "Remove from cart",
-    "INCREASE": "Increase quantity",
-    "DECREASE": "Decrease quantity",
-    "QUANTITY": "Quantity",
-    "SUMMARY": "Summary",
-    "ITEMS_COUNT": "Items",
-    "TOTAL_QUANTITY": "Total quantity",
-    "TOTAL": "Total",
-    "PRICE_NOTE": "Cart prices are for information only; the final amount (with discounts) is calculated when you order."
-  },
-  "CHECKOUT": {
-    "TITLE": "Checkout",
-    "EMPTY_TEXT": "Add products to your cart before checking out.",
-    "STEP_CART": "Cart",
-    "STEP_DETAILS": "Note",
-    "STEP_SUBMIT": "Confirmation",
-    "BACK_TO_CART": "Back to cart",
-    "NEXT": "Next",
-    "BACK": "Back",
-    "NOTE_LABEL": "Note (optional)",
-    "NOTE_PLACEHOLDER": "E.g. delivery time, floor...",
-    "CONFIRM_LABEL": "I have reviewed the order and want to place it.",
-    "CONFIRM_REQUIRED": "Confirm the order to continue.",
-    "SUBMIT": "Place order",
-    "SUBMITTING": "Placing order...",
-    "SUCCESS": "Your order was created successfully.",
-    "DELIVERY_ADDRESS": "Delivery address",
-    "ADDRESS_MISSING": "Address or city is missing.",
-    "ADD_ADDRESS": "Add them in your profile",
-    "ADDRESS_NOTE": "The order is delivered to the address in your profile (My profile)."
   },
   "CURRENCY": {
     "SELECT": "Currency for prices",
