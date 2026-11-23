@@ -20,11 +20,6 @@
   <mat-card-actions class="product-actions">
     @if (outOfStock) {
       <span class="out-of-stock">{{ 'PRODUCT_CARD.OUT_OF_STOCK' | translate }}</span>
-    } @else {
-      <button mat-flat-button type="button" (click)="addToCart()">
-        <mat-icon>add_shopping_cart</mat-icon>
-        {{ 'PRODUCT_CARD.ADD_TO_CART' | translate }}
-      </button>
     }
   </mat-card-actions>
 </mat-card>

@@ -1,7 +1,7 @@
 <header class="store-header">
   <a routerLink="/" class="brand">
     <mat-icon>storefront</mat-icon>
-    <span>FIT Market</span>
+    <span>TicketHub</span>
   </a>
 
   <nav class="store-nav">
@@ -16,22 +16,6 @@
     </a>
 
     <app-currency-selector />
-
-    <a
-      mat-icon-button
-      routerLink="/cart"
-      routerLinkActive="active"
-      [matTooltip]="'PUBLIC.NAV.CART' | translate"
-      [attr.aria-label]="'PUBLIC.NAV.CART' | translate"
-    >
-      <mat-icon
-        [matBadge]="cart.itemCount()"
-        [matBadgeHidden]="cart.itemCount() === 0"
-        matBadgeColor="warn"
-        aria-hidden="false"
-        >shopping_cart</mat-icon
-      >
-    </a>
 
     @if (currentUser.isAuthenticated()) {
       <button mat-flat-button class="nav-button" type="button" [matMenuTriggerFor]="accountMenu">

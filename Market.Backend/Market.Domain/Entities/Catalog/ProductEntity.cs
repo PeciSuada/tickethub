@@ -50,9 +50,6 @@ public class ProductEntity : BaseEntity
     public string? ImageUrl { get; set; }
 
 
-    // Many-to-many: Users who favorited this product
-    public ICollection<UserProductFavoriteEntity> FavoritedByUsers { get; private set; } = new List<UserProductFavoriteEntity>();
-
 
     ///// <summary>
     ///// Collection of order items.
