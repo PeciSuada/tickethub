@@ -2,7 +2,6 @@ namespace Market.Application.Modules.Catalog.CatalogHome.Queries.GetCatalogHome;
 
 /// <summary>
 /// Reads the home page data directly from the database on every request.
-/// To cache it (e.g. in Redis), see the example in <see cref="Abstractions.Caching.ICacheService"/>.
 /// </summary>
 public sealed class GetCatalogHomeQueryHandler(IAppDbContext ctx, TimeProvider timeProvider)
     : IRequestHandler<GetCatalogHomeQuery, GetCatalogHomeQueryDto>
