@@ -9,6 +9,6 @@ public sealed class GetMeQueryDto
     public required string? Address { get; init; }
     public required string? City { get; init; }
     public required bool IsAdmin { get; init; }
-    public required bool IsManager { get; init; }
-    public required bool IsEmployee { get; init; }
+    public required bool IsOrganizer { get; init; }
+    public required bool IsScanner { get; init; }
 }

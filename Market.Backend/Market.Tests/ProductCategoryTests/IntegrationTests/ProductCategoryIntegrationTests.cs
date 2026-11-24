@@ -59,8 +59,8 @@ public class ProductCategoryIntegrationTests
     {
         // Arrange
         var client = await _factory.GetAuthenticatedClientAsync(
-            CustomWebApplicationFactory<Program>.EmployeeEmail,
-            CustomWebApplicationFactory<Program>.EmployeePassword);
+            CustomWebApplicationFactory<Program>.ScannerEmail,
+            CustomWebApplicationFactory<Program>.ScannerPassword);
         var request = new
         {
             Name = "Employee Category"

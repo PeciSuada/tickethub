@@ -40,10 +40,10 @@ public sealed class UserEntityConfiguration : IEntityTypeConfiguration<MarketUse
         b.Property(x => x.IsAdmin)
             .HasDefaultValue(false);
 
-        b.Property(x => x.IsManager)
+        b.Property(x => x.IsOrganizer)
             .HasDefaultValue(false);
 
-        // No HasDefaultValue(true) for IsEmployee/IsEnabled: EF Core does not send a bool that has the
+        // No HasDefaultValue(true) for IsScanner/IsEnabled: EF Core does not send a bool that has the
         // CLR default (false) when the column has a database default, so "false" could never be saved -
         // the database would silently store "true". Defaults belong in the entity (IsEnabled = true).
 

@@ -10,4 +10,14 @@ public static class PolicyNames
     /// Only users whose access token contains the claim <c>is_admin = "true"</c>.
     /// </summary>
     public const string Admin = "Admin";
+
+    /// <summary>
+    /// Only users whose access token contains the claim <c>is_organizer = "true"</c>.
+    /// </summary>
+    public const string Organizer = "Organizer";
+
+    /// <summary>
+    /// Only users whose access token contains the claim <c>is_scanner = "true"</c>.
+    /// </summary>
+    public const string Scanner = "Scanner";
 }

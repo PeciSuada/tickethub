@@ -98,38 +98,38 @@ public static class DynamicDataSeeder
             Address = "Maršala Tita 1",
             City = "Sarajevo",
             IsAdmin = true,
-            IsManager = false,
-            IsEmployee = false,
+            IsOrganizer = false,
+            IsScanner = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
 
-        var manager = new MarketUserEntity
+        var organizer = new MarketUserEntity
         {
-            Firstname = "Manager",
+            Firstname = "Organizer",
             Lastname = "Market",
-            Email = "manager@market.local",
-            PasswordHash = hasher.HashPassword(null!, "Manager123!"),
+            Email = "organizer@market.local",
+            PasswordHash = hasher.HashPassword(null!, "Organizer123!"),
             Address = "Ferhadija 12",
             City = "Sarajevo",
             IsAdmin = false,
-            IsManager = true,
-            IsEmployee = false,
+            IsOrganizer = true,
+            IsScanner = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
 
-        var employee = new MarketUserEntity
+        var scanner = new MarketUserEntity
         {
-            Firstname = "Employee",
+            Firstname = "Scanner",
             Lastname = "Market",
-            Email = "employee@market.local",
-            PasswordHash = hasher.HashPassword(null!, "Employee123!"),
+            Email = "scanner@market.local",
+            PasswordHash = hasher.HashPassword(null!, "Scanner123!"),
             Address = "Kralja Tvrtka 5",
             City = "Zenica",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = true,
+            IsOrganizer = false,
+            IsScanner = true,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
@@ -143,8 +143,8 @@ public static class DynamicDataSeeder
             Address = "Zmaja od Bosne 8",
             City = "Sarajevo",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = true,
+            IsOrganizer = false,
+            IsScanner = true,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
@@ -158,8 +158,8 @@ public static class DynamicDataSeeder
             Address = "Titova 3",
             City = "Tuzla",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = true,
+            IsOrganizer = false,
+            IsScanner = true,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow
         };
@@ -174,8 +174,8 @@ public static class DynamicDataSeeder
             Address = "Bulevar Meše Selimovića 15",
             City = "Sarajevo",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = false,
+            IsOrganizer = false,
+            IsScanner = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow.AddDays(-30)
         };
@@ -189,8 +189,8 @@ public static class DynamicDataSeeder
             Address = "Kneza Domagoja 22",
             City = "Mostar",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = false,
+            IsOrganizer = false,
+            IsScanner = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow.AddDays(-25)
         };
@@ -204,16 +204,16 @@ public static class DynamicDataSeeder
             Address = "Trg slobode 4",
             City = "Tuzla",
             IsAdmin = false,
-            IsManager = false,
-            IsEmployee = false,
+            IsOrganizer = false,
+            IsScanner = false,
             IsEnabled = true,
             CreatedAtUtc = DateTime.UtcNow.AddDays(-20)
         };
 
         context.Users.AddRange(
             admin,
-            manager,
-            employee,
+            organizer,
+            scanner,
             dummyForSwagger,
             dummyForTests,
             customer1,
@@ -457,7 +457,7 @@ public static class DynamicDataSeeder
         if (await context.Orders.AnyAsync())
             return;
 
-        // Učitaj demo kupce (ne admin/manager/employee naloge) i proizvode
+        // Učitaj demo kupce (ne admin/organizer/scanner naloge) i proizvode
         var customers = await context.Users
             .Where(u => CustomerEmails.Contains(u.Email))
             .ToListAsync();
