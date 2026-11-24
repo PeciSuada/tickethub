@@ -179,8 +179,8 @@
     "TITLE": "Admin Panel",
     "ROLES": {
       "ADMIN": "Administrator",
-      "MANAGER": "Menadžer",
-      "EMPLOYEE": "Zaposlenik"
+      "ORGANIZER": "Organizator",
+      "SCANNER": "Kontrolor ulaza"
     },
     "MENU": {
       "CATALOG": "KATALOG",

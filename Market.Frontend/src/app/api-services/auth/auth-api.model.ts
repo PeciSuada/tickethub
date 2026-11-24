@@ -117,8 +117,8 @@ export interface GetMeQueryDto {
   address: string | null;
   city: string | null;
   isAdmin: boolean;
-  isManager: boolean;
-  isEmployee: boolean;
+  isOrganizer: boolean;
+  isScanner: boolean;
 }
 
 /**

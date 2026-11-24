@@ -375,16 +375,16 @@ namespace Market.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsEmployee")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsManager")
+                    b.Property<bool>("IsOrganizer")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
+
+                    b.Property<bool>("IsScanner")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Lastname")
                         .IsRequired()

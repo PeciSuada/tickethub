@@ -79,7 +79,7 @@ public class AccountIntegrationTests
         Assert.Equal(email, me!.Email);
         Assert.Equal("Titova 10", me.Address);
         Assert.Equal("Sarajevo", me.City);
-        Assert.False(me.IsAdmin || me.IsManager || me.IsEmployee); // a new account is a customer
+        Assert.False(me.IsAdmin || me.IsOrganizer || me.IsScanner); // a new account is a customer
     }
 
     [Fact]

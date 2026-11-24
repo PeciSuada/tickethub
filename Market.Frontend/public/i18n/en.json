@@ -179,8 +179,8 @@
     "TITLE": "Admin Panel",
     "ROLES": {
       "ADMIN": "Administrator",
-      "MANAGER": "Manager",
-      "EMPLOYEE": "Employee"
+      "ORGANIZER": "Organizer",
+      "SCANNER": "Entrance scanner"
     },
     "MENU": {
       "CATALOG": "CATALOG",

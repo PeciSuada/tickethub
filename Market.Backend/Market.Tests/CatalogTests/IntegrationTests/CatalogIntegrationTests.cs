@@ -63,8 +63,8 @@ public class CatalogIntegrationTests
     {
         // Arrange
         var client = await _factory.GetAuthenticatedClientAsync(
-            CustomWebApplicationFactory<Program>.EmployeeEmail,
-            CustomWebApplicationFactory<Program>.EmployeePassword);
+            CustomWebApplicationFactory<Program>.ScannerEmail,
+            CustomWebApplicationFactory<Program>.ScannerPassword);
 
         // Act
         var response = await client.GetAsync("/Promotions");

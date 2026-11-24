@@ -35,11 +35,11 @@ export const myAuthGuard: CanActivateFn = (
   const authData = (route.data['auth'] ?? {}) as MyAuthRouteData;
 
   const requireAdmin = authData.requireAdmin === true;
-  const requireManager = authData.requireManager === true;
-  const requireEmployee = authData.requireEmployee === true;
+  const requireOrganizer = authData.requireOrganizer === true;
+  const requireScanner = authData.requireScanner === true;
   // traženje bilo koje uloge podrazumijeva i prijavu
   const requireAuth =
-    authData.requireAuth === true || requireAdmin || requireManager || requireEmployee;
+    authData.requireAuth === true || requireAdmin || requireOrganizer || requireScanner;
 
   // Ako ne traži auth → pusti (javne rute)
   if (!requireAuth) {
@@ -55,8 +55,8 @@ export const myAuthGuard: CanActivateFn = (
   // 2) role check – ako user nema traženu ulogu → njegova početna ruta
   if (
     (requireAdmin && !user.isAdmin) ||
-    (requireManager && !user.isManager) ||
-    (requireEmployee && !user.isEmployee)
+    (requireOrganizer && !user.isOrganizer) ||
+    (requireScanner && !user.isScanner)
   ) {
     return router.createUrlTree([currentUser.getDefaultRoute()]);
   }
@@ -67,8 +67,8 @@ export const myAuthGuard: CanActivateFn = (
 export interface MyAuthRouteData {
   requireAuth?: boolean;
   requireAdmin?: boolean;
-  requireManager?: boolean;
-  requireEmployee?: boolean;
+  requireOrganizer?: boolean;
+  requireScanner?: boolean;
 }
 
 export function myAuthData(data: MyAuthRouteData): { auth: MyAuthRouteData } {
