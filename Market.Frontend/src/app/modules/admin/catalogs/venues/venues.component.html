@@ -1,0 +1,193 @@
+<div class="container">
+  <!-- Header Card -->
+  <div class="header-card">
+    <div class="header-card-content">
+      <!-- Left: Title with Icon -->
+      <div class="title-section">
+        <div class="title-icon">
+          <mat-icon>stadium</mat-icon>
+        </div>
+        <h1>{{ 'VENUES.TITLE' | translate }}</h1>
+      </div>
+
+      <!-- Right: Search, Filter, Button -->
+      <div class="actions-container">
+        <!-- Only Enabled Toggle -->
+        <mat-slide-toggle
+          [(ngModel)]="showOnlyEnabled"
+          (change)="onToggleEnabledFilter($event.checked)"
+          color="primary"
+          class="enabled-toggle"
+        >
+          {{ 'VENUES.ONLY_ENABLED' | translate }}
+        </mat-slide-toggle>
+
+        <!-- City filter -->
+        <mat-form-field class="search-field" appearance="fill">
+          <mat-label>{{ 'VENUES.CITY_FILTER' | translate }}</mat-label>
+          <mat-select [ngModel]="request.cityId ?? null" (selectionChange)="onCityChange($event.value)">
+            <mat-option [value]="null">{{ 'VENUES.ALL_CITIES' | translate }}</mat-option>
+            <mat-option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Search -->
+        <mat-form-field class="search-field" appearance="fill">
+          <mat-label>{{ 'VENUES.SEARCH_PLACEHOLDER' | translate }}</mat-label>
+          <input
+            matInput
+            [(ngModel)]="request.search"
+            (keyup.enter)="onSearchChange(request.search || '')"
+            [placeholder]="'VENUES.SEARCH_INPUT_PLACEHOLDER' | translate"
+          />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!-- New Venue Button -->
+        <button mat-raised-button color="primary" (click)="onCreate()" class="add-button">
+          <mat-icon>add</mat-icon>
+          <span>{{ 'VENUES.NEW_CATEGORY' | translate }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner diameter="48" color="primary"></mat-spinner>
+    <p>{{ 'VENUES.LOADING' | translate }}</p>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="!isLoading && errorMessage" class="error-container">
+    <mat-icon>error_outline</mat-icon>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Table Card -->
+  <div class="table-card" *ngIf="!isLoading && !errorMessage">
+    <table mat-table [dataSource]="items">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">label</mat-icon>
+            {{ 'VENUES.TABLE.NAME' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let venue">
+          <span class="venue-name">{{ venue.name }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Address Column -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">place</mat-icon>
+            {{ 'VENUES.TABLE.ADDRESS' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let venue">{{ venue.address }}</td>
+      </ng-container>
+
+      <!-- City Column -->
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">location_city</mat-icon>
+            {{ 'VENUES.TABLE.CITY' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let venue">{{ venue.cityName }}</td>
+      </ng-container>
+
+      <!-- Is Enabled Column -->
+      <ng-container matColumnDef="isEnabled">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">toggle_on</mat-icon>
+            {{ 'VENUES.TABLE.STATUS' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let venue">
+          <mat-slide-toggle
+            [checked]="venue.isEnabled"
+            (change)="onToggleStatus(venue)"
+            color="primary"
+            [disabled]="isLoading"
+            class="status-toggle"
+          >
+            <span class="status-label" [class.enabled]="venue.isEnabled">
+              {{
+                venue.isEnabled
+                  ? ('VENUES.TABLE.ENABLED' | translate)
+                  : ('VENUES.TABLE.DISABLED' | translate)
+              }}
+            </span>
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">settings</mat-icon>
+            {{ 'VENUES.TABLE.ACTIONS' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let venue">
+          <div class="action-buttons">
+            <button
+              mat-icon-button
+              color="primary"
+              (click)="onEdit(venue)"
+              [matTooltip]="'VENUES.ACTIONS.EDIT_TOOLTIP' | translate"
+              class="action-btn edit-btn"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="onDelete(venue)"
+              [matTooltip]="'VENUES.ACTIONS.DELETE_TOOLTIP' | translate"
+              class="action-btn delete-btn"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Header Row -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+      <!-- Data Rows -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" class="data-row"></tr>
+
+      <!-- No Data Row -->
+      <tr class="mat-row no-data-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+          <div class="no-data-content">
+            <mat-icon>inbox</mat-icon>
+            <p>
+              <ng-container *ngIf="request.search; else noDataDefault">
+                {{ 'VENUES.NO_DATA_FILTER' | translate }}
+              </ng-container>
+              <ng-template #noDataDefault>
+                {{ 'VENUES.NO_DATA' | translate }}
+              </ng-template>
+            </p>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Paginator -->
+    <div class="paginator-wrapper">
+      <app-fit-paginator-bar [vm]="this"></app-fit-paginator-bar>
+    </div>
+  </div>
+</div>

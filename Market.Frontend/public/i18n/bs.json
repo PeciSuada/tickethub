@@ -186,6 +186,8 @@
       "CATALOG": "KATALOG",
       "CATEGORIES": "Kategorije Proizvoda",
       "EVENT_CATEGORIES": "Kategorije događaja",
+      "CITIES": "Gradovi",
+      "VENUES": "Dvorane",
       "PRODUCTS": "Proizvodi",
       "ORDERS_SECTION": "NARUDŽBE",
       "ORDERS": "Pregled Narudžbi",
@@ -301,6 +303,115 @@
       "ERROR_TOGGLE": "Greška pri promjeni statusa kategorije \"{{name}}\".",
       "ERROR_LOAD": "Greška pri učitavanju kategorije.",
       "ERROR_LOAD_LIST": "Greška pri učitavanju kategorija."
+    }
+  },
+  "CITIES": {
+    "TITLE": "Gradovi",
+    "SUBTITLE": "Upravljanje gradovima",
+    "SEARCH_PLACEHOLDER": "Pretra\u017ei gradovi",
+    "SEARCH_INPUT_PLACEHOLDER": "Unesite naziv grada...",
+    "ONLY_ENABLED": "Samo aktivni",
+    "NEW_CATEGORY": "Novi grad",
+    "ADD_NEW": "Dodaj grad",
+    "LOADING": "U\u010ditavanje gradova...",
+    "NO_DATA": "Nema gradova za prikaz",
+    "NO_DATA_FILTER": "Nema rezultata za pretragu",
+    "TABLE": {
+      "NAME": "Naziv",
+      "STATUS": "Status",
+      "ENABLED": "Aktivan",
+      "DISABLED": "Neaktivan",
+      "ACTIONS": "Akcije"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Uredi grad",
+      "DELETE_TOOLTIP": "Obri\u0161i grad"
+    },
+    "FORM": {
+      "NAME": "Naziv grada",
+      "NAME_PLACEHOLDER": "Unesite naziv grada",
+      "LOADING": "U\u010ditavanje...",
+      "CANCEL": "Otka\u017ei",
+      "SAVE": "Sa\u010duvaj",
+      "UPDATE": "A\u017euriraj",
+      "CREATE_TITLE": "Novi grad",
+      "EDIT_TITLE": "Uredi grad",
+      "IS_ENABLED": "Aktivan (vidljiv kupcima)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Brisanje grada",
+      "DELETE_MESSAGE": "Da li ste sigurni da \u017eelite obrisati grad \"{{name}}\"?",
+      "CONFIRM_ENABLE": "Da li ste sigurni da \u017eelite aktivirati grad \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Da li ste sigurni da \u017eelite deaktivirati grad \"{{name}}\"?",
+      "SUCCESS_CREATE": "Grad uspje\u0161no kreiran.",
+      "SUCCESS_UPDATE": "Grad uspje\u0161no a\u017euriran.",
+      "SUCCESS_DELETE": "Grad uspje\u0161no obrisan.",
+      "SUCCESS_ENABLE": "Grad \"{{name}}\" je uspje\u0161no aktiviran.",
+      "SUCCESS_DISABLE": "Grad \"{{name}}\" je uspje\u0161no deaktiviran.",
+      "ERROR_CREATE": "Gre\u0161ka pri kreiranju grada.",
+      "ERROR_UPDATE": "Gre\u0161ka pri a\u017euriranju grada.",
+      "ERROR_DELETE": "Gre\u0161ka pri brisanju grada.",
+      "ERROR_TOGGLE": "Gre\u0161ka pri promjeni statusa grada \"{{name}}\".",
+      "ERROR_LOAD": "Gre\u0161ka pri u\u010ditavanju grada.",
+      "ERROR_LOAD_LIST": "Gre\u0161ka pri u\u010ditavanju gradova."
+    }
+  },
+  "VENUES": {
+    "TITLE": "Dvorane",
+    "SUBTITLE": "Upravljanje dvoranama",
+    "SEARCH_PLACEHOLDER": "Pretra\u017ei dvorane",
+    "SEARCH_INPUT_PLACEHOLDER": "Unesite naziv ili adresu dvorane...",
+    "ONLY_ENABLED": "Samo aktivne",
+    "NEW_CATEGORY": "Nova dvorana",
+    "ADD_NEW": "Dodaj dvoranu",
+    "LOADING": "U\u010ditavanje dvorana...",
+    "NO_DATA": "Nema dvorana za prikaz",
+    "NO_DATA_FILTER": "Nema rezultata za pretragu",
+    "CITY_FILTER": "Grad",
+    "ALL_CITIES": "Svi gradovi",
+    "TABLE": {
+      "NAME": "Naziv",
+      "ADDRESS": "Adresa",
+      "CITY": "Grad",
+      "STATUS": "Status",
+      "ENABLED": "Aktivna",
+      "DISABLED": "Neaktivna",
+      "ACTIONS": "Akcije"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Uredi dvoranu",
+      "DELETE_TOOLTIP": "Obri\u0161i dvoranu"
+    },
+    "FORM": {
+      "NAME": "Naziv dvorane",
+      "NAME_PLACEHOLDER": "Unesite naziv dvorane",
+      "ADDRESS": "Adresa",
+      "ADDRESS_PLACEHOLDER": "Unesite adresu dvorane",
+      "CITY": "Grad",
+      "LOADING": "U\u010ditavanje...",
+      "CANCEL": "Otka\u017ei",
+      "SAVE": "Sa\u010duvaj",
+      "UPDATE": "A\u017euriraj",
+      "CREATE_TITLE": "Nova dvorana",
+      "EDIT_TITLE": "Uredi dvoranu",
+      "IS_ENABLED": "Aktivna (vidljiva kupcima)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Brisanje dvorane",
+      "DELETE_MESSAGE": "Da li ste sigurni da \u017eelite obrisati dvoranu \"{{name}}\"?",
+      "CONFIRM_ENABLE": "Da li ste sigurni da \u017eelite aktivirati dvoranu \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Da li ste sigurni da \u017eelite deaktivirati dvoranu \"{{name}}\"?",
+      "SUCCESS_CREATE": "Dvorana uspje\u0161no kreirana.",
+      "SUCCESS_UPDATE": "Dvorana uspje\u0161no a\u017eurirana.",
+      "SUCCESS_DELETE": "Dvorana uspje\u0161no obrisana.",
+      "SUCCESS_ENABLE": "Dvorana \"{{name}}\" je uspje\u0161no aktivirana.",
+      "SUCCESS_DISABLE": "Dvorana \"{{name}}\" je uspje\u0161no deaktivirana.",
+      "ERROR_CREATE": "Gre\u0161ka pri kreiranju dvorane.",
+      "ERROR_UPDATE": "Gre\u0161ka pri a\u017euriranju dvorane.",
+      "ERROR_DELETE": "Gre\u0161ka pri brisanju dvorane.",
+      "ERROR_TOGGLE": "Gre\u0161ka pri promjeni statusa dvorane \"{{name}}\".",
+      "ERROR_LOAD": "Gre\u0161ka pri u\u010ditavanju dvorane.",
+      "ERROR_LOAD_LIST": "Gre\u0161ka pri u\u010ditavanju dvorana."
     }
   },
   "PRODUCTS": {
