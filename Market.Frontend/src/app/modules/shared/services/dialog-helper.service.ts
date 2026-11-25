@@ -285,6 +285,114 @@ export class DialogHelperService {
   };
 
   /**
+   * City specific dialogs
+   */
+  city = {
+    confirmDelete: (cityName: string) => {
+      return this.confirmDelete(
+        cityName,
+        'CITIES.DIALOGS.DELETE_MESSAGE'
+      );
+    },
+
+    showCreateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'CITIES.DIALOGS.SUCCESS_CREATE'
+      );
+    },
+
+    showUpdateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'CITIES.DIALOGS.SUCCESS_UPDATE'
+      );
+    },
+
+    showDeleteSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'CITIES.DIALOGS.SUCCESS_DELETE'
+      );
+    },
+
+    showCreateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'CITIES.DIALOGS.ERROR_CREATE'
+      );
+    },
+
+    showUpdateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'CITIES.DIALOGS.ERROR_UPDATE'
+      );
+    },
+
+    showDeleteError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'CITIES.DIALOGS.ERROR_DELETE'
+      );
+    }
+  };
+
+  /**
+   * Venue specific dialogs
+   */
+  venue = {
+    confirmDelete: (venueName: string) => {
+      return this.confirmDelete(
+        venueName,
+        'VENUES.DIALOGS.DELETE_MESSAGE'
+      );
+    },
+
+    showCreateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'VENUES.DIALOGS.SUCCESS_CREATE'
+      );
+    },
+
+    showUpdateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'VENUES.DIALOGS.SUCCESS_UPDATE'
+      );
+    },
+
+    showDeleteSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'VENUES.DIALOGS.SUCCESS_DELETE'
+      );
+    },
+
+    showCreateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'VENUES.DIALOGS.ERROR_CREATE'
+      );
+    },
+
+    showUpdateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'VENUES.DIALOGS.ERROR_UPDATE'
+      );
+    },
+
+    showDeleteError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'VENUES.DIALOGS.ERROR_DELETE'
+      );
+    }
+  };
+
+  /**
    * Product specific dialogs
    */
   product = {

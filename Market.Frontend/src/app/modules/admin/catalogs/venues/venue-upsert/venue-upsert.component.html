@@ -1,0 +1,100 @@
+﻿<h2 mat-dialog-title>
+  {{ (isEditMode ? 'VENUES.FORM.EDIT_TITLE' : 'VENUES.FORM.CREATE_TITLE') | translate }}
+</h2>
+
+<mat-dialog-content>
+  <!-- The form stays visible while saving and after an error (so the user can fix the data) -->
+  @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" id="venue-form">
+      <!-- Server Error Message -->
+      @if (errorMessage) {
+        <div class="error-banner">
+          <mat-icon>error</mat-icon>
+          <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <!-- Venue Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'VENUES.FORM.NAME' | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          [placeholder]="'VENUES.FORM.NAME_PLACEHOLDER' | translate"
+          [maxlength]="formService.nameMaxLength"
+          autocomplete="off"
+        />
+        <mat-icon matSuffix>stadium</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.name" /></mat-error>
+        <mat-hint align="end">
+          {{ form.controls.name.value.length }}/{{ formService.nameMaxLength }}
+        </mat-hint>
+      </mat-form-field>
+
+      <!-- Address -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'VENUES.FORM.ADDRESS' | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="address"
+          [placeholder]="'VENUES.FORM.ADDRESS_PLACEHOLDER' | translate"
+          [maxlength]="formService.addressMaxLength"
+          autocomplete="off"
+        />
+        <mat-icon matSuffix>place</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.address" /></mat-error>
+      </mat-form-field>
+
+      <!-- City -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'VENUES.FORM.CITY' | translate }}</mat-label>
+        <mat-select formControlName="cityId">
+          <mat-option *ngFor="let city of cities" [value]="city.id">
+            {{ city.name }}
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>location_city</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.cityId" /></mat-error>
+      </mat-form-field>
+
+      <!-- Is Enabled -->
+      <mat-checkbox formControlName="isEnabled" class="enabled-checkbox">
+        {{ 'VENUES.FORM.IS_ENABLED' | translate }}
+      </mat-checkbox>
+    </form>
+  }
+
+  <!-- Loading State -->
+  @if (isLoading && !form) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>{{ 'VENUES.FORM.LOADING' | translate }}</p>
+    </div>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+    <mat-icon>close</mat-icon>
+    {{ 'VENUES.FORM.CANCEL' | translate }}
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    form="venue-form"
+    [disabled]="!form || form.invalid || isLoading"
+  >
+    @if (isLoading) {
+      <mat-spinner diameter="20"></mat-spinner>
+    } @else {
+      <mat-icon>{{ isEditMode ? 'edit' : 'save' }}</mat-icon>
+    }
+    {{
+      isEditMode
+        ? ('VENUES.FORM.UPDATE' | translate)
+        : ('VENUES.FORM.SAVE' | translate)
+    }}
+  </button>
+</mat-dialog-actions>

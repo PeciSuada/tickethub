@@ -186,6 +186,8 @@
       "CATALOG": "CATALOG",
       "CATEGORIES": "Product Categories",
       "EVENT_CATEGORIES": "Event Categories",
+      "CITIES": "Cities",
+      "VENUES": "Venues",
       "PRODUCTS": "Products",
       "ORDERS_SECTION": "ORDERS",
       "ORDERS": "Orders Overview",
@@ -301,6 +303,115 @@
       "ERROR_TOGGLE": "Error changing status of category \"{{name}}\".",
       "ERROR_LOAD": "Error loading the category.",
       "ERROR_LOAD_LIST": "Error loading categories."
+    }
+  },
+  "CITIES": {
+    "TITLE": "Cities",
+    "SUBTITLE": "Manage cities",
+    "SEARCH_PLACEHOLDER": "Search cities",
+    "SEARCH_INPUT_PLACEHOLDER": "Enter city name...",
+    "ONLY_ENABLED": "Only Active",
+    "NEW_CATEGORY": "New City",
+    "ADD_NEW": "Add City",
+    "LOADING": "Loading cities...",
+    "NO_DATA": "No cities to display",
+    "NO_DATA_FILTER": "No results found for search",
+    "TABLE": {
+      "NAME": "Name",
+      "STATUS": "Status",
+      "ENABLED": "Active",
+      "DISABLED": "Inactive",
+      "ACTIONS": "Actions"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Edit city",
+      "DELETE_TOOLTIP": "Delete city"
+    },
+    "FORM": {
+      "NAME": "City Name",
+      "NAME_PLACEHOLDER": "Enter city name",
+      "LOADING": "Loading...",
+      "CANCEL": "Cancel",
+      "SAVE": "Save",
+      "UPDATE": "Update",
+      "CREATE_TITLE": "New city",
+      "EDIT_TITLE": "Edit city",
+      "IS_ENABLED": "Active (visible to customers)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Delete City",
+      "DELETE_MESSAGE": "Are you sure you want to delete city \"{{name}}\"?",
+      "CONFIRM_ENABLE": "Are you sure you want to enable city \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Are you sure you want to disable city \"{{name}}\"?",
+      "SUCCESS_CREATE": "City created successfully.",
+      "SUCCESS_UPDATE": "City updated successfully.",
+      "SUCCESS_DELETE": "City deleted successfully.",
+      "SUCCESS_ENABLE": "City \"{{name}}\" has been enabled successfully.",
+      "SUCCESS_DISABLE": "City \"{{name}}\" has been disabled successfully.",
+      "ERROR_CREATE": "Error creating city.",
+      "ERROR_UPDATE": "Error updating city.",
+      "ERROR_DELETE": "Error deleting city.",
+      "ERROR_TOGGLE": "Error changing status of city \"{{name}}\".",
+      "ERROR_LOAD": "Error loading the city.",
+      "ERROR_LOAD_LIST": "Error loading cities."
+    }
+  },
+  "VENUES": {
+    "TITLE": "Venues",
+    "SUBTITLE": "Manage venues",
+    "SEARCH_PLACEHOLDER": "Search venues",
+    "SEARCH_INPUT_PLACEHOLDER": "Enter venue name or address...",
+    "ONLY_ENABLED": "Only Active",
+    "NEW_CATEGORY": "New Venue",
+    "ADD_NEW": "Add Venue",
+    "LOADING": "Loading venues...",
+    "NO_DATA": "No venues to display",
+    "NO_DATA_FILTER": "No results found for search",
+    "CITY_FILTER": "City",
+    "ALL_CITIES": "All cities",
+    "TABLE": {
+      "NAME": "Name",
+      "ADDRESS": "Address",
+      "CITY": "City",
+      "STATUS": "Status",
+      "ENABLED": "Active",
+      "DISABLED": "Inactive",
+      "ACTIONS": "Actions"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Edit venue",
+      "DELETE_TOOLTIP": "Delete venue"
+    },
+    "FORM": {
+      "NAME": "Venue Name",
+      "NAME_PLACEHOLDER": "Enter venue name",
+      "ADDRESS": "Address",
+      "ADDRESS_PLACEHOLDER": "Enter venue address",
+      "CITY": "City",
+      "LOADING": "Loading...",
+      "CANCEL": "Cancel",
+      "SAVE": "Save",
+      "UPDATE": "Update",
+      "CREATE_TITLE": "New venue",
+      "EDIT_TITLE": "Edit venue",
+      "IS_ENABLED": "Active (visible to customers)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Delete Venue",
+      "DELETE_MESSAGE": "Are you sure you want to delete venue \"{{name}}\"?",
+      "CONFIRM_ENABLE": "Are you sure you want to enable venue \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Are you sure you want to disable venue \"{{name}}\"?",
+      "SUCCESS_CREATE": "Venue created successfully.",
+      "SUCCESS_UPDATE": "Venue updated successfully.",
+      "SUCCESS_DELETE": "Venue deleted successfully.",
+      "SUCCESS_ENABLE": "Venue \"{{name}}\" has been enabled successfully.",
+      "SUCCESS_DISABLE": "Venue \"{{name}}\" has been disabled successfully.",
+      "ERROR_CREATE": "Error creating venue.",
+      "ERROR_UPDATE": "Error updating venue.",
+      "ERROR_DELETE": "Error deleting venue.",
+      "ERROR_TOGGLE": "Error changing status of venue \"{{name}}\".",
+      "ERROR_LOAD": "Error loading the venue.",
+      "ERROR_LOAD_LIST": "Error loading venues."
     }
   },
   "PRODUCTS": {

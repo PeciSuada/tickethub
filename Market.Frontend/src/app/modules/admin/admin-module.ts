@@ -8,6 +8,10 @@ import {AdminLayoutComponent} from './admin-layout/admin-layout.component';
 import {ProductCategoriesComponent} from './catalogs/product-categories/product-categories.component';
 import {EventCategoriesComponent} from './catalogs/event-categories/event-categories.component';
 import {EventCategoryUpsertComponent} from './catalogs/event-categories/event-category-upsert/event-category-upsert.component';
+import {CitiesComponent} from './catalogs/cities/cities.component';
+import {CityUpsertComponent} from './catalogs/cities/city-upsert/city-upsert.component';
+import {VenuesComponent} from './catalogs/venues/venues.component';
+import {VenueUpsertComponent} from './catalogs/venues/venue-upsert/venue-upsert.component';
 import {
   ProductCategoryUpsertComponent
 } from './catalogs/product-categories/product-category-upsert/product-category-upsert.component';
@@ -35,6 +39,10 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
     ProductCategoryUpsertComponent,
     EventCategoriesComponent,
     EventCategoryUpsertComponent,
+    CitiesComponent,
+    CityUpsertComponent,
+    VenuesComponent,
+    VenueUpsertComponent,
     AdminOrdersComponent,
     OrderDetailsDialogComponent,
     ChangeStatusDialogComponent,
