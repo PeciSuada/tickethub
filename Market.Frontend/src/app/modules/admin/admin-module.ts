@@ -6,6 +6,8 @@ import {ProductsAddComponent} from './catalogs/products/products-add/products-ad
 import {ProductsEditComponent} from './catalogs/products/products-edit/products-edit.component';
 import {AdminLayoutComponent} from './admin-layout/admin-layout.component';
 import {ProductCategoriesComponent} from './catalogs/product-categories/product-categories.component';
+import {EventCategoriesComponent} from './catalogs/event-categories/event-categories.component';
+import {EventCategoryUpsertComponent} from './catalogs/event-categories/event-category-upsert/event-category-upsert.component';
 import {
   ProductCategoryUpsertComponent
 } from './catalogs/product-categories/product-category-upsert/product-category-upsert.component';
@@ -31,6 +33,8 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
     AdminLayoutComponent,
     ProductCategoriesComponent,
     ProductCategoryUpsertComponent,
+    EventCategoriesComponent,
+    EventCategoryUpsertComponent,
     AdminOrdersComponent,
     OrderDetailsDialogComponent,
     ChangeStatusDialogComponent,

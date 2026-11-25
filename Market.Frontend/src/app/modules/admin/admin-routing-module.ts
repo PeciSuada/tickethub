@@ -6,6 +6,7 @@ import { ProductsComponent } from './catalogs/products/products.component';
 import { ProductsAddComponent } from './catalogs/products/products-add/products-add.component';
 import { ProductsEditComponent } from './catalogs/products/products-edit/products-edit.component';
 import { ProductCategoriesComponent } from './catalogs/product-categories/product-categories.component';
+import { EventCategoriesComponent } from './catalogs/event-categories/event-categories.component';
 import {AdminOrdersComponent} from './orders/admin-orders.component';
 import {MyProfileComponent} from '../account/my-profile/my-profile.component';
 import {AdminSettingsComponent} from './admin-settings/admin-settings.component';
@@ -38,6 +39,12 @@ const routes: Routes = [
       {
         path: 'product-categories',
         component: ProductCategoriesComponent,
+      },
+
+      // EVENT CATEGORIES
+      {
+        path: 'event-categories',
+        component: EventCategoriesComponent,
       },
 
       // PROMOTIONS (baneri na početnoj stranici)
