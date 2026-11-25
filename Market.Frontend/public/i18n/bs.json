@@ -185,6 +185,7 @@
     "MENU": {
       "CATALOG": "KATALOG",
       "CATEGORIES": "Kategorije Proizvoda",
+      "EVENT_CATEGORIES": "Kategorije događaja",
       "PRODUCTS": "Proizvodi",
       "ORDERS_SECTION": "NARUDŽBE",
       "ORDERS": "Pregled Narudžbi",
@@ -236,6 +237,57 @@
     "DIALOGS": {
       "DELETE_TITLE": "Brisanje Kategorije",
       "DELETE_MESSAGE": "Da li ste sigurni da želite obrisati kategoriju \"{{name}}\"? Ovo će također obrisati sve proizvode u ovoj kategoriji.",
+      "CONFIRM_ENABLE": "Da li ste sigurni da želite aktivirati kategoriju \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Da li ste sigurni da želite deaktivirati kategoriju \"{{name}}\"?",
+      "SUCCESS_CREATE": "Kategorija uspješno kreirana.",
+      "SUCCESS_UPDATE": "Kategorija uspješno ažurirana.",
+      "SUCCESS_DELETE": "Kategorija uspješno obrisana.",
+      "SUCCESS_ENABLE": "Kategorija \"{{name}}\" je uspješno aktivirana.",
+      "SUCCESS_DISABLE": "Kategorija \"{{name}}\" je uspješno deaktivirana.",
+      "ERROR_CREATE": "Greška pri kreiranju kategorije.",
+      "ERROR_UPDATE": "Greška pri ažuriranju kategorije.",
+      "ERROR_DELETE": "Greška pri brisanju kategorije.",
+      "ERROR_TOGGLE": "Greška pri promjeni statusa kategorije \"{{name}}\".",
+      "ERROR_LOAD": "Greška pri učitavanju kategorije.",
+      "ERROR_LOAD_LIST": "Greška pri učitavanju kategorija."
+    }
+  },
+  "EVENT_CATEGORIES": {
+    "TITLE": "Kategorije Događaja",
+    "SUBTITLE": "Upravljanje kategorijama događaja",
+    "SEARCH_PLACEHOLDER": "Pretraži kategorije",
+    "SEARCH_INPUT_PLACEHOLDER": "Unesite naziv kategorije...",
+    "ONLY_ENABLED": "Samo Aktivne",
+    "NEW_CATEGORY": "Nova Kategorija",
+    "ADD_NEW": "Dodaj Kategoriju",
+    "LOADING": "Učitavanje kategorija...",
+    "NO_DATA": "Nema kategorija za prikaz",
+    "NO_DATA_FILTER": "Nema rezultata za pretragu",
+    "TABLE": {
+      "NAME": "Naziv",
+      "STATUS": "Status",
+      "ENABLED": "Aktivna",
+      "DISABLED": "Neaktivna",
+      "ACTIONS": "Akcije"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Uredi kategoriju",
+      "DELETE_TOOLTIP": "Obriši kategoriju"
+    },
+    "FORM": {
+      "NAME": "Naziv Kategorije",
+      "NAME_PLACEHOLDER": "Unesite naziv kategorije",
+      "LOADING": "Učitavanje...",
+      "CANCEL": "Otkaži",
+      "SAVE": "Sačuvaj",
+      "UPDATE": "Ažuriraj",
+      "CREATE_TITLE": "Nova kategorija",
+      "EDIT_TITLE": "Uredi kategoriju",
+      "IS_ENABLED": "Aktivna (vidljiva kupcima)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Brisanje Kategorije",
+      "DELETE_MESSAGE": "Da li ste sigurni da želite obrisati kategoriju \"{{name}}\"?",
       "CONFIRM_ENABLE": "Da li ste sigurni da želite aktivirati kategoriju \"{{name}}\"?",
       "CONFIRM_DISABLE": "Da li ste sigurni da želite deaktivirati kategoriju \"{{name}}\"?",
       "SUCCESS_CREATE": "Kategorija uspješno kreirana.",

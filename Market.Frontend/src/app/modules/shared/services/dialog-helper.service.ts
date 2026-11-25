@@ -231,6 +231,60 @@ export class DialogHelperService {
   };
 
   /**
+   * Event Category specific dialogs
+   */
+  eventCategory = {
+    confirmDelete: (categoryName: string) => {
+      return this.confirmDelete(
+        categoryName,
+        'EVENT_CATEGORIES.DIALOGS.DELETE_MESSAGE'
+      );
+    },
+
+    showCreateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'EVENT_CATEGORIES.DIALOGS.SUCCESS_CREATE'
+      );
+    },
+
+    showUpdateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'EVENT_CATEGORIES.DIALOGS.SUCCESS_UPDATE'
+      );
+    },
+
+    showDeleteSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'EVENT_CATEGORIES.DIALOGS.SUCCESS_DELETE'
+      );
+    },
+
+    showCreateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'EVENT_CATEGORIES.DIALOGS.ERROR_CREATE'
+      );
+    },
+
+    showUpdateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'EVENT_CATEGORIES.DIALOGS.ERROR_UPDATE'
+      );
+    },
+
+    showDeleteError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'EVENT_CATEGORIES.DIALOGS.ERROR_DELETE'
+      );
+    }
+  };
+
+  /**
    * Product specific dialogs
    */
   product = {

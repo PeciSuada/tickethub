@@ -7,6 +7,7 @@ namespace Market.Infrastructure.Database;
 public partial class DatabaseContext : DbContext, IAppDbContext
 {
     public DbSet<ProductCategoryEntity> ProductCategories => Set<ProductCategoryEntity>();
+    public DbSet<EventCategoryEntity> EventCategories => Set<EventCategoryEntity>();
     public DbSet<ProductEntity> Products => Set<ProductEntity>();
     public DbSet<PromotionEntity> Promotions => Set<PromotionEntity>();
     public DbSet<MarketUserEntity> Users => Set<MarketUserEntity>();

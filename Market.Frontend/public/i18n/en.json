@@ -185,6 +185,7 @@
     "MENU": {
       "CATALOG": "CATALOG",
       "CATEGORIES": "Product Categories",
+      "EVENT_CATEGORIES": "Event Categories",
       "PRODUCTS": "Products",
       "ORDERS_SECTION": "ORDERS",
       "ORDERS": "Orders Overview",
@@ -236,6 +237,57 @@
     "DIALOGS": {
       "DELETE_TITLE": "Delete Category",
       "DELETE_MESSAGE": "Are you sure you want to delete category \"{{name}}\"? This will also delete all products in this category.",
+      "CONFIRM_ENABLE": "Are you sure you want to enable category \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Are you sure you want to disable category \"{{name}}\"?",
+      "SUCCESS_CREATE": "Category created successfully.",
+      "SUCCESS_UPDATE": "Category updated successfully.",
+      "SUCCESS_DELETE": "Category deleted successfully.",
+      "SUCCESS_ENABLE": "Category \"{{name}}\" has been enabled successfully.",
+      "SUCCESS_DISABLE": "Category \"{{name}}\" has been disabled successfully.",
+      "ERROR_CREATE": "Error creating category.",
+      "ERROR_UPDATE": "Error updating category.",
+      "ERROR_DELETE": "Error deleting category.",
+      "ERROR_TOGGLE": "Error changing status of category \"{{name}}\".",
+      "ERROR_LOAD": "Error loading the category.",
+      "ERROR_LOAD_LIST": "Error loading categories."
+    }
+  },
+  "EVENT_CATEGORIES": {
+    "TITLE": "Event Categories",
+    "SUBTITLE": "Manage event categories",
+    "SEARCH_PLACEHOLDER": "Search categories",
+    "SEARCH_INPUT_PLACEHOLDER": "Enter category name...",
+    "ONLY_ENABLED": "Only Active",
+    "NEW_CATEGORY": "New Category",
+    "ADD_NEW": "Add Category",
+    "LOADING": "Loading categories...",
+    "NO_DATA": "No categories to display",
+    "NO_DATA_FILTER": "No results found for search",
+    "TABLE": {
+      "NAME": "Name",
+      "STATUS": "Status",
+      "ENABLED": "Active",
+      "DISABLED": "Inactive",
+      "ACTIONS": "Actions"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Edit category",
+      "DELETE_TOOLTIP": "Delete category"
+    },
+    "FORM": {
+      "NAME": "Category Name",
+      "NAME_PLACEHOLDER": "Enter category name",
+      "LOADING": "Loading...",
+      "CANCEL": "Cancel",
+      "SAVE": "Save",
+      "UPDATE": "Update",
+      "CREATE_TITLE": "New category",
+      "EDIT_TITLE": "Edit category",
+      "IS_ENABLED": "Active (visible to customers)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Delete Category",
+      "DELETE_MESSAGE": "Are you sure you want to delete category \"{{name}}\"?",
       "CONFIRM_ENABLE": "Are you sure you want to enable category \"{{name}}\"?",
       "CONFIRM_DISABLE": "Are you sure you want to disable category \"{{name}}\"?",
       "SUCCESS_CREATE": "Category created successfully.",
