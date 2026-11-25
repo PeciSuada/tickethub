@@ -186,6 +186,7 @@
       "CATALOG": "CATALOG",
       "CATEGORIES": "Product Categories",
       "EVENT_CATEGORIES": "Event Categories",
+      "SEAT_CATEGORIES": "Seat categories",
       "CITIES": "Cities",
       "VENUES": "Venues",
       "PRODUCTS": "Products",
@@ -303,6 +304,59 @@
       "ERROR_TOGGLE": "Error changing status of category \"{{name}}\".",
       "ERROR_LOAD": "Error loading the category.",
       "ERROR_LOAD_LIST": "Error loading categories."
+    }
+  },
+  "SEAT_CATEGORIES": {
+    "TITLE": "Seat categories",
+    "SUBTITLE": "Manage seat categories",
+    "SEARCH_PLACEHOLDER": "Search seat categories",
+    "SEARCH_INPUT_PLACEHOLDER": "Enter seat category name...",
+    "ONLY_ENABLED": "Only Active",
+    "NEW_CATEGORY": "New seat category",
+    "ADD_NEW": "Add seat category",
+    "LOADING": "Loading seat categories...",
+    "NO_DATA": "No seat categories to display",
+    "NO_DATA_FILTER": "No results found for search",
+    "TABLE": {
+      "NAME": "Name",
+      "COLOR": "Color",
+      "STATUS": "Status",
+      "ENABLED": "Active",
+      "DISABLED": "Inactive",
+      "ACTIONS": "Actions"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Edit seat category",
+      "DELETE_TOOLTIP": "Delete seat category"
+    },
+    "FORM": {
+      "NAME": "Category name",
+      "NAME_PLACEHOLDER": "e.g. VIP, Floor, Balcony",
+      "COLOR": "Color on the seat map",
+      "LOADING": "Loading...",
+      "CANCEL": "Cancel",
+      "SAVE": "Save",
+      "UPDATE": "Update",
+      "CREATE_TITLE": "New seat category",
+      "EDIT_TITLE": "Edit seat category",
+      "IS_ENABLED": "Active (visible to customers)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Delete seat category",
+      "DELETE_MESSAGE": "Are you sure you want to delete seat category \"{{name}}\"?",
+      "CONFIRM_ENABLE": "Are you sure you want to enable seat category \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Are you sure you want to disable seat category \"{{name}}\"?",
+      "SUCCESS_CREATE": "Seat category created successfully.",
+      "SUCCESS_UPDATE": "Seat category updated successfully.",
+      "SUCCESS_DELETE": "Seat category deleted successfully.",
+      "SUCCESS_ENABLE": "Seat category \"{{name}}\" has been enabled successfully.",
+      "SUCCESS_DISABLE": "Seat category \"{{name}}\" has been disabled successfully.",
+      "ERROR_CREATE": "Error creating seat category.",
+      "ERROR_UPDATE": "Error updating seat category.",
+      "ERROR_DELETE": "Error deleting seat category.",
+      "ERROR_TOGGLE": "Error changing status of seat category \"{{name}}\".",
+      "ERROR_LOAD": "Error loading the seat category.",
+      "ERROR_LOAD_LIST": "Error loading seat categories."
     }
   },
   "CITIES": {

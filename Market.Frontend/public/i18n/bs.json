@@ -186,6 +186,7 @@
       "CATALOG": "KATALOG",
       "CATEGORIES": "Kategorije Proizvoda",
       "EVENT_CATEGORIES": "Kategorije događaja",
+      "SEAT_CATEGORIES": "Kategorije sjedi\u0161ta",
       "CITIES": "Gradovi",
       "VENUES": "Dvorane",
       "PRODUCTS": "Proizvodi",
@@ -303,6 +304,59 @@
       "ERROR_TOGGLE": "Greška pri promjeni statusa kategorije \"{{name}}\".",
       "ERROR_LOAD": "Greška pri učitavanju kategorije.",
       "ERROR_LOAD_LIST": "Greška pri učitavanju kategorija."
+    }
+  },
+  "SEAT_CATEGORIES": {
+    "TITLE": "Kategorije sjedi\u0161ta",
+    "SUBTITLE": "Upravljanje kategorijama sjedi\u0161ta",
+    "SEARCH_PLACEHOLDER": "Pretra\u017ei kategorije sjedi\u0161ta",
+    "SEARCH_INPUT_PLACEHOLDER": "Unesite naziv kategorije sjedi\u0161ta...",
+    "ONLY_ENABLED": "Samo aktivne",
+    "NEW_CATEGORY": "Nova kategorija sjedi\u0161ta",
+    "ADD_NEW": "Dodaj kategoriju sjedi\u0161ta",
+    "LOADING": "U\u010ditavanje kategorija sjedi\u0161ta...",
+    "NO_DATA": "Nema kategorija sjedi\u0161ta za prikaz",
+    "NO_DATA_FILTER": "Nema rezultata za pretragu",
+    "TABLE": {
+      "NAME": "Naziv",
+      "COLOR": "Boja",
+      "STATUS": "Status",
+      "ENABLED": "Aktivna",
+      "DISABLED": "Neaktivna",
+      "ACTIONS": "Akcije"
+    },
+    "ACTIONS": {
+      "EDIT_TOOLTIP": "Uredi kategoriju sjedi\u0161ta",
+      "DELETE_TOOLTIP": "Obri\u0161i kategoriju sjedi\u0161ta"
+    },
+    "FORM": {
+      "NAME": "Naziv kategorije",
+      "NAME_PLACEHOLDER": "npr. VIP, Parter, Balkon",
+      "COLOR": "Boja na planu sjedi\u0161ta",
+      "LOADING": "U\u010ditavanje...",
+      "CANCEL": "Otka\u017ei",
+      "SAVE": "Sa\u010duvaj",
+      "UPDATE": "A\u017euriraj",
+      "CREATE_TITLE": "Nova kategorija sjedi\u0161ta",
+      "EDIT_TITLE": "Uredi kategoriju sjedi\u0161ta",
+      "IS_ENABLED": "Aktivna (vidljiva kupcima)"
+    },
+    "DIALOGS": {
+      "DELETE_TITLE": "Brisanje kategorije sjedi\u0161ta",
+      "DELETE_MESSAGE": "Da li ste sigurni da \u017eelite obrisati kategoriju sjedi\u0161ta \"{{name}}\"?",
+      "CONFIRM_ENABLE": "Da li ste sigurni da \u017eelite aktivirati kategoriju sjedi\u0161ta \"{{name}}\"?",
+      "CONFIRM_DISABLE": "Da li ste sigurni da \u017eelite deaktivirati kategoriju sjedi\u0161ta \"{{name}}\"?",
+      "SUCCESS_CREATE": "Kategorija sjedi\u0161ta uspje\u0161no kreirana.",
+      "SUCCESS_UPDATE": "Kategorija sjedi\u0161ta uspje\u0161no a\u017eurirana.",
+      "SUCCESS_DELETE": "Kategorija sjedi\u0161ta uspje\u0161no obrisana.",
+      "SUCCESS_ENABLE": "Kategorija sjedi\u0161ta \"{{name}}\" je uspje\u0161no aktivirana.",
+      "SUCCESS_DISABLE": "Kategorija sjedi\u0161ta \"{{name}}\" je uspje\u0161no deaktivirana.",
+      "ERROR_CREATE": "Gre\u0161ka pri kreiranju kategorije sjedi\u0161ta.",
+      "ERROR_UPDATE": "Gre\u0161ka pri a\u017euriranju kategorije sjedi\u0161ta.",
+      "ERROR_DELETE": "Gre\u0161ka pri brisanju kategorije sjedi\u0161ta.",
+      "ERROR_TOGGLE": "Gre\u0161ka pri promjeni statusa kategorije sjedi\u0161ta \"{{name}}\".",
+      "ERROR_LOAD": "Gre\u0161ka pri u\u010ditavanju kategorije sjedi\u0161ta.",
+      "ERROR_LOAD_LIST": "Gre\u0161ka pri u\u010ditavanju kategorija sjedi\u0161ta."
     }
   },
   "CITIES": {

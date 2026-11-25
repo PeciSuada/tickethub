@@ -7,6 +7,7 @@ import { ProductsAddComponent } from './catalogs/products/products-add/products-
 import { ProductsEditComponent } from './catalogs/products/products-edit/products-edit.component';
 import { ProductCategoriesComponent } from './catalogs/product-categories/product-categories.component';
 import { EventCategoriesComponent } from './catalogs/event-categories/event-categories.component';
+import { SeatCategoriesComponent } from './catalogs/seat-categories/seat-categories.component';
 import { CitiesComponent } from './catalogs/cities/cities.component';
 import { VenuesComponent } from './catalogs/venues/venues.component';
 import {AdminOrdersComponent} from './orders/admin-orders.component';
@@ -47,6 +48,12 @@ const routes: Routes = [
       {
         path: 'event-categories',
         component: EventCategoriesComponent,
+      },
+
+      // SEAT CATEGORIES
+      {
+        path: 'seat-categories',
+        component: SeatCategoriesComponent,
       },
 
       // CITIES

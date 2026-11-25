@@ -1,0 +1,81 @@
+﻿<h2 mat-dialog-title>
+  {{ (isEditMode ? 'SEAT_CATEGORIES.FORM.EDIT_TITLE' : 'SEAT_CATEGORIES.FORM.CREATE_TITLE') | translate }}
+</h2>
+
+<mat-dialog-content>
+  <!-- The form stays visible while saving and after an error (so the user can fix the data) -->
+  @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" id="seat-category-form">
+      <!-- Server Error Message -->
+      @if (errorMessage) {
+        <div class="error-banner">
+          <mat-icon>error</mat-icon>
+          <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <!-- Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEAT_CATEGORIES.FORM.NAME' | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          [placeholder]="'SEAT_CATEGORIES.FORM.NAME_PLACEHOLDER' | translate"
+          [maxlength]="formService.nameMaxLength"
+          autocomplete="off"
+        />
+        <mat-icon matSuffix>event_seat</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.name" /></mat-error>
+        <mat-hint align="end">
+          {{ form.controls.name.value.length }}/{{ formService.nameMaxLength }}
+        </mat-hint>
+      </mat-form-field>
+
+      <!-- Color -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEAT_CATEGORIES.FORM.COLOR' | translate }}</mat-label>
+        <input matInput type="color" formControlName="colorHex" />
+        <mat-error><app-fit-field-error [control]="form.controls.colorHex" /></mat-error>
+      </mat-form-field>
+
+      <!-- Is Enabled -->
+      <mat-checkbox formControlName="isEnabled" class="enabled-checkbox">
+        {{ 'SEAT_CATEGORIES.FORM.IS_ENABLED' | translate }}
+      </mat-checkbox>
+    </form>
+  }
+
+  <!-- Loading State -->
+  @if (isLoading && !form) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>{{ 'SEAT_CATEGORIES.FORM.LOADING' | translate }}</p>
+    </div>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+    <mat-icon>close</mat-icon>
+    {{ 'SEAT_CATEGORIES.FORM.CANCEL' | translate }}
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    form="seat-category-form"
+    [disabled]="!form || form.invalid || isLoading"
+  >
+    @if (isLoading) {
+      <mat-spinner diameter="20"></mat-spinner>
+    } @else {
+      <mat-icon>{{ isEditMode ? 'edit' : 'save' }}</mat-icon>
+    }
+    {{
+      isEditMode
+        ? ('SEAT_CATEGORIES.FORM.UPDATE' | translate)
+        : ('SEAT_CATEGORIES.FORM.SAVE' | translate)
+    }}
+  </button>
+</mat-dialog-actions>
