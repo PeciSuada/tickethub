@@ -251,6 +251,86 @@ namespace Market.Infrastructure.Migrations
                     b.ToTable("SeatCategories", (string)null);
                 });
 
+            modelBuilder.Entity("Market.Domain.Entities.Catalog.SeatEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RowLabel")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<int>("SeatCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SectorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeatCategoryId");
+
+                    b.HasIndex("SectorId", "RowLabel", "Number")
+                        .IsUnique()
+                        .HasFilter("[IsDeleted] = 0");
+
+                    b.ToTable("Seats", (string)null);
+                });
+
+            modelBuilder.Entity("Market.Domain.Entities.Catalog.SectorEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("VenueId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VenueId");
+
+                    b.ToTable("Sectors", (string)null);
+                });
+
             modelBuilder.Entity("Market.Domain.Entities.Catalog.VenueEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -748,6 +828,36 @@ namespace Market.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Market.Domain.Entities.Catalog.SeatEntity", b =>
+                {
+                    b.HasOne("Market.Domain.Entities.Catalog.SeatCategoryEntity", "SeatCategory")
+                        .WithMany()
+                        .HasForeignKey("SeatCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Market.Domain.Entities.Catalog.SectorEntity", "Sector")
+                        .WithMany()
+                        .HasForeignKey("SectorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("SeatCategory");
+
+                    b.Navigation("Sector");
+                });
+
+            modelBuilder.Entity("Market.Domain.Entities.Catalog.SectorEntity", b =>
+                {
+                    b.HasOne("Market.Domain.Entities.Catalog.VenueEntity", "Venue")
+                        .WithMany()
+                        .HasForeignKey("VenueId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Venue");
                 });
 
             modelBuilder.Entity("Market.Domain.Entities.Catalog.VenueEntity", b =>

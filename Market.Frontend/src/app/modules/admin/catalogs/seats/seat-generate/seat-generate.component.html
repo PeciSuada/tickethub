@@ -1,0 +1,101 @@
+﻿<h2 mat-dialog-title>{{ 'SEATS.GENERATE_FORM.TITLE' | translate }}</h2>
+
+<mat-dialog-content>
+  @if (createdCount !== null) {
+    <!-- Result view after a successful generation -->
+    <div class="result-banner">
+      <mat-icon>check_circle</mat-icon>
+      <span>{{ 'SEATS.GENERATE_FORM.RESULT' | translate: { count: createdCount } }}</span>
+    </div>
+  } @else {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" id="seat-generate-form">
+      @if (errorMessage) {
+        <div class="error-banner">
+          <mat-icon>error</mat-icon>
+          <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <p class="hint">{{ 'SEATS.GENERATE_FORM.HINT' | translate }}</p>
+
+      <!-- Sector -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEATS.FORM.SECTOR' | translate }}</mat-label>
+        <mat-select formControlName="sectorId">
+          <mat-option *ngFor="let sector of sectors" [value]="sector.id">
+            {{ sector.name }} ({{ sector.venueName }})
+          </mat-option>
+        </mat-select>
+        <mat-error><app-fit-field-error [control]="form.controls.sectorId" /></mat-error>
+      </mat-form-field>
+
+      <!-- Seat category -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEATS.FORM.CATEGORY' | translate }}</mat-label>
+        <mat-select formControlName="seatCategoryId">
+          <mat-option *ngFor="let category of seatCategories" [value]="category.id">
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error><app-fit-field-error [control]="form.controls.seatCategoryId" /></mat-error>
+      </mat-form-field>
+
+      <div class="row">
+        <!-- First row -->
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'SEATS.GENERATE_FORM.FIRST_ROW' | translate }}</mat-label>
+          <input matInput formControlName="firstRow" maxlength="1" autocomplete="off" />
+          <mat-error><app-fit-field-error [control]="form.controls.firstRow" /></mat-error>
+        </mat-form-field>
+
+        <!-- Number of rows -->
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'SEATS.GENERATE_FORM.ROW_COUNT' | translate }}</mat-label>
+          <input matInput type="number" min="1" [max]="maxRows" formControlName="rowCount" />
+          <mat-error><app-fit-field-error [control]="form.controls.rowCount" /></mat-error>
+        </mat-form-field>
+
+        <!-- Seats per row -->
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'SEATS.GENERATE_FORM.SEATS_PER_ROW' | translate }}</mat-label>
+          <input matInput type="number" min="1" [max]="maxSeatsPerRow" formControlName="seatsPerRow" />
+          <mat-error><app-fit-field-error [control]="form.controls.seatsPerRow" /></mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Preview -->
+      <div class="preview">
+        {{ 'SEATS.GENERATE_FORM.PREVIEW' | translate: { rows: rowRange, total: totalSeats } }}
+      </div>
+    </form>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  @if (createdCount !== null) {
+    <button mat-raised-button color="primary" type="button" (click)="onCancel()">
+      <mat-icon>done</mat-icon>
+      {{ 'SEATS.GENERATE_FORM.CLOSE' | translate }}
+    </button>
+  } @else {
+    <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+      <mat-icon>close</mat-icon>
+      {{ 'SEATS.FORM.CANCEL' | translate }}
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      form="seat-generate-form"
+      [disabled]="form.invalid || isLoading"
+    >
+      @if (isLoading) {
+        <mat-spinner diameter="20"></mat-spinner>
+      } @else {
+        <mat-icon>auto_awesome</mat-icon>
+      }
+      {{ 'SEATS.GENERATE_FORM.SUBMIT' | translate }}
+    </button>
+  }
+</mat-dialog-actions>

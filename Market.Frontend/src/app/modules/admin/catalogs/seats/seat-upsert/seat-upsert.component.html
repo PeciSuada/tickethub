@@ -1,0 +1,101 @@
+﻿<h2 mat-dialog-title>
+  {{ (isEditMode ? 'SEATS.FORM.EDIT_TITLE' : 'SEATS.FORM.CREATE_TITLE') | translate }}
+</h2>
+
+<mat-dialog-content>
+  <!-- The form stays visible while saving and after an error (so the user can fix the data) -->
+  @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" id="seat-form">
+      <!-- Server Error Message -->
+      @if (errorMessage) {
+        <div class="error-banner">
+          <mat-icon>error</mat-icon>
+          <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <!-- Sector -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEATS.FORM.SECTOR' | translate }}</mat-label>
+        <mat-select formControlName="sectorId">
+          <mat-option *ngFor="let sector of sectors" [value]="sector.id">
+            {{ sector.name }} ({{ sector.venueName }})
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>grid_view</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.sectorId" /></mat-error>
+      </mat-form-field>
+
+      <!-- Seat category -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEATS.FORM.CATEGORY' | translate }}</mat-label>
+        <mat-select formControlName="seatCategoryId">
+          <mat-option *ngFor="let category of seatCategories" [value]="category.id">
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>event_seat</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.seatCategoryId" /></mat-error>
+      </mat-form-field>
+
+      <!-- Row -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEATS.FORM.ROW_LABEL' | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="rowLabel"
+          [placeholder]="'SEATS.FORM.ROW_LABEL_PLACEHOLDER' | translate"
+          [maxlength]="formService.rowLabelMaxLength"
+          autocomplete="off"
+        />
+        <mat-error><app-fit-field-error [control]="form.controls.rowLabel" /></mat-error>
+      </mat-form-field>
+
+      <!-- Seat number -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SEATS.FORM.NUMBER' | translate }}</mat-label>
+        <input matInput type="number" min="1" formControlName="number" autocomplete="off" />
+        <mat-error><app-fit-field-error [control]="form.controls.number" /></mat-error>
+      </mat-form-field>
+
+      <!-- Is Enabled -->
+      <mat-checkbox formControlName="isEnabled" class="enabled-checkbox">
+        {{ 'SEATS.FORM.IS_ENABLED' | translate }}
+      </mat-checkbox>
+    </form>
+  }
+
+  <!-- Loading State -->
+  @if (isLoading && !form) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>{{ 'SEATS.FORM.LOADING' | translate }}</p>
+    </div>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+    <mat-icon>close</mat-icon>
+    {{ 'SEATS.FORM.CANCEL' | translate }}
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    form="seat-form"
+    [disabled]="!form || form.invalid || isLoading"
+  >
+    @if (isLoading) {
+      <mat-spinner diameter="20"></mat-spinner>
+    } @else {
+      <mat-icon>{{ isEditMode ? 'edit' : 'save' }}</mat-icon>
+    }
+    {{
+      isEditMode
+        ? ('SEATS.FORM.UPDATE' | translate)
+        : ('SEATS.FORM.SAVE' | translate)
+    }}
+  </button>
+</mat-dialog-actions>

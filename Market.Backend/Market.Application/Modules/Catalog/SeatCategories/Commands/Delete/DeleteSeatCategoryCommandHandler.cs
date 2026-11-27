@@ -15,6 +15,13 @@ public class DeleteSeatCategoryCommandHandler(IAppDbContext context, IAppCurrent
         if (category is null)
             throw new MarketNotFoundException("Kategorija nije pronađena.");
 
+        var isUsed = await context.Seats
+            .AnyAsync(s => s.SeatCategoryId == category.Id, cancellationToken);
+
+        if (isUsed)
+            throw new MarketConflictException(
+                $"Kategorija sjedi\u0161ta {category.Name} se ne mo\u017ee obrisati jer je koriste sjedi\u0161ta.");
+
         context.SeatCategories.Remove(category);
         await context.SaveChangesAsync(cancellationToken);
 

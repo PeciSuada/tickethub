@@ -285,6 +285,114 @@ export class DialogHelperService {
   };
 
   /**
+   * Sector specific dialogs
+   */
+  sector = {
+    confirmDelete: (sectorName: string) => {
+      return this.confirmDelete(
+        sectorName,
+        'SECTORS.DIALOGS.DELETE_MESSAGE'
+      );
+    },
+
+    showCreateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'SECTORS.DIALOGS.SUCCESS_CREATE'
+      );
+    },
+
+    showUpdateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'SECTORS.DIALOGS.SUCCESS_UPDATE'
+      );
+    },
+
+    showDeleteSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'SECTORS.DIALOGS.SUCCESS_DELETE'
+      );
+    },
+
+    showCreateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'SECTORS.DIALOGS.ERROR_CREATE'
+      );
+    },
+
+    showUpdateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'SECTORS.DIALOGS.ERROR_UPDATE'
+      );
+    },
+
+    showDeleteError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'SECTORS.DIALOGS.ERROR_DELETE'
+      );
+    }
+  };
+
+  /**
+   * Seat specific dialogs
+   */
+  seat = {
+    confirmDelete: (seatName: string) => {
+      return this.confirmDelete(
+        seatName,
+        'SEATS.DIALOGS.DELETE_MESSAGE'
+      );
+    },
+
+    showCreateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'SEATS.DIALOGS.SUCCESS_CREATE'
+      );
+    },
+
+    showUpdateSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'SEATS.DIALOGS.SUCCESS_UPDATE'
+      );
+    },
+
+    showDeleteSuccess: () => {
+      return this.showSuccess(
+        'DIALOGS.TITLES.SUCCESS',
+        'SEATS.DIALOGS.SUCCESS_DELETE'
+      );
+    },
+
+    showCreateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'SEATS.DIALOGS.ERROR_CREATE'
+      );
+    },
+
+    showUpdateError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'SEATS.DIALOGS.ERROR_UPDATE'
+      );
+    },
+
+    showDeleteError: () => {
+      return this.showError(
+        'DIALOGS.TITLES.ERROR',
+        'SEATS.DIALOGS.ERROR_DELETE'
+      );
+    }
+  };
+
+  /**
    * Seat Category specific dialogs
    */
   seatCategory = {

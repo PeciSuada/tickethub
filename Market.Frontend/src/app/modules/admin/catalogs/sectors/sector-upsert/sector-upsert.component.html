@@ -1,0 +1,86 @@
+﻿<h2 mat-dialog-title>
+  {{ (isEditMode ? 'SECTORS.FORM.EDIT_TITLE' : 'SECTORS.FORM.CREATE_TITLE') | translate }}
+</h2>
+
+<mat-dialog-content>
+  <!-- The form stays visible while saving and after an error (so the user can fix the data) -->
+  @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" id="sector-form">
+      <!-- Server Error Message -->
+      @if (errorMessage) {
+        <div class="error-banner">
+          <mat-icon>error</mat-icon>
+          <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <!-- Sector Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SECTORS.FORM.NAME' | translate }}</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          [placeholder]="'SECTORS.FORM.NAME_PLACEHOLDER' | translate"
+          [maxlength]="formService.nameMaxLength"
+          autocomplete="off"
+        />
+        <mat-icon matSuffix>grid_view</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.name" /></mat-error>
+        <mat-hint align="end">
+          {{ form.controls.name.value.length }}/{{ formService.nameMaxLength }}
+        </mat-hint>
+      </mat-form-field>
+
+      <!-- Venue -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'SECTORS.FORM.VENUE' | translate }}</mat-label>
+        <mat-select formControlName="venueId">
+          <mat-option *ngFor="let venue of venues" [value]="venue.id">
+            {{ venue.name }} ({{ venue.cityName }})
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>stadium</mat-icon>
+        <mat-error><app-fit-field-error [control]="form.controls.venueId" /></mat-error>
+      </mat-form-field>
+
+      <!-- Is Enabled -->
+      <mat-checkbox formControlName="isEnabled" class="enabled-checkbox">
+        {{ 'SECTORS.FORM.IS_ENABLED' | translate }}
+      </mat-checkbox>
+    </form>
+  }
+
+  <!-- Loading State -->
+  @if (isLoading && !form) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>{{ 'SECTORS.FORM.LOADING' | translate }}</p>
+    </div>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+    <mat-icon>close</mat-icon>
+    {{ 'SECTORS.FORM.CANCEL' | translate }}
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    form="sector-form"
+    [disabled]="!form || form.invalid || isLoading"
+  >
+    @if (isLoading) {
+      <mat-spinner diameter="20"></mat-spinner>
+    } @else {
+      <mat-icon>{{ isEditMode ? 'edit' : 'save' }}</mat-icon>
+    }
+    {{
+      isEditMode
+        ? ('SECTORS.FORM.UPDATE' | translate)
+        : ('SECTORS.FORM.SAVE' | translate)
+    }}
+  </button>
+</mat-dialog-actions>
