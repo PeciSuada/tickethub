@@ -1,0 +1,211 @@
+<div class="container">
+  <!-- Header Card -->
+  <div class="header-card">
+    <div class="header-card-content">
+      <!-- Left: Title with Icon -->
+      <div class="title-section">
+        <div class="title-icon">
+          <mat-icon>chair</mat-icon>
+        </div>
+        <h1>{{ 'SEATS.TITLE' | translate }}</h1>
+      </div>
+
+      <!-- Right: Search, Filter, Button -->
+      <div class="actions-container">
+        <!-- Only Enabled Toggle -->
+        <mat-slide-toggle
+          [(ngModel)]="showOnlyEnabled"
+          (change)="onToggleEnabledFilter($event.checked)"
+          color="primary"
+          class="enabled-toggle"
+        >
+          {{ 'SEATS.ONLY_ENABLED' | translate }}
+        </mat-slide-toggle>
+
+        <!-- Sector filter -->
+        <mat-form-field class="search-field" appearance="fill">
+          <mat-label>{{ 'SEATS.SECTOR_FILTER' | translate }}</mat-label>
+          <mat-select [ngModel]="request.sectorId ?? null" (selectionChange)="onSectorChange($event.value)">
+            <mat-option [value]="null">{{ 'SEATS.ALL_SECTORS' | translate }}</mat-option>
+            <mat-option *ngFor="let sector of sectors" [value]="sector.id">{{ sector.name }} ({{ sector.venueName }})</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Seat category filter -->
+        <mat-form-field class="search-field" appearance="fill">
+          <mat-label>{{ 'SEATS.CATEGORY_FILTER' | translate }}</mat-label>
+          <mat-select [ngModel]="request.seatCategoryId ?? null" (selectionChange)="onCategoryChange($event.value)">
+            <mat-option [value]="null">{{ 'SEATS.ALL_CATEGORIES' | translate }}</mat-option>
+            <mat-option *ngFor="let category of seatCategories" [value]="category.id">{{ category.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Bulk generator -->
+        <button mat-stroked-button color="primary" type="button" (click)="onGenerate()">
+          <mat-icon>auto_awesome</mat-icon>
+          {{ 'SEATS.GENERATE' | translate }}
+        </button>
+
+        <!-- Search -->
+        <mat-form-field class="search-field" appearance="fill">
+          <mat-label>{{ 'SEATS.SEARCH_PLACEHOLDER' | translate }}</mat-label>
+          <input
+            matInput
+            [(ngModel)]="request.search"
+            (keyup.enter)="onSearchChange(request.search || '')"
+            [placeholder]="'SEATS.SEARCH_INPUT_PLACEHOLDER' | translate"
+          />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!-- New Seat Button -->
+        <button mat-raised-button color="primary" (click)="onCreate()" class="add-button">
+          <mat-icon>add</mat-icon>
+          <span>{{ 'SEATS.NEW_CATEGORY' | translate }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner diameter="48" color="primary"></mat-spinner>
+    <p>{{ 'SEATS.LOADING' | translate }}</p>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="!isLoading && errorMessage" class="error-container">
+    <mat-icon>error_outline</mat-icon>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Table Card -->
+  <div class="table-card" *ngIf="!isLoading && !errorMessage">
+    <table mat-table [dataSource]="items">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">label</mat-icon>
+            {{ 'SEATS.TABLE.NAME' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let seat">
+          <span class="seat-name">{{ seat.name }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Sector Column -->
+      <ng-container matColumnDef="sector">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">grid_view</mat-icon>
+            {{ 'SEATS.TABLE.SECTOR' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let seat">{{ seat.sectorName }} ({{ seat.venueName }})</td>
+      </ng-container>
+
+      <!-- Seat Category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">event_seat</mat-icon>
+            {{ 'SEATS.TABLE.CATEGORY' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let seat">
+          <span [style.background]="seat.seatCategoryColorHex" style="display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:8px;vertical-align:middle"></span>
+          {{ seat.seatCategoryName }}
+        </td>
+      </ng-container>
+
+      <!-- Is Enabled Column -->
+      <ng-container matColumnDef="isEnabled">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">toggle_on</mat-icon>
+            {{ 'SEATS.TABLE.STATUS' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let seat">
+          <mat-slide-toggle
+            [checked]="seat.isEnabled"
+            (change)="onToggleStatus(seat)"
+            color="primary"
+            [disabled]="isLoading"
+            class="status-toggle"
+          >
+            <span class="status-label" [class.enabled]="seat.isEnabled">
+              {{
+                seat.isEnabled
+                  ? ('SEATS.TABLE.ENABLED' | translate)
+                  : ('SEATS.TABLE.DISABLED' | translate)
+              }}
+            </span>
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-cell">
+            <mat-icon class="header-icon">settings</mat-icon>
+            {{ 'SEATS.TABLE.ACTIONS' | translate }}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let seat">
+          <div class="action-buttons">
+            <button
+              mat-icon-button
+              color="primary"
+              (click)="onEdit(seat)"
+              [matTooltip]="'SEATS.ACTIONS.EDIT_TOOLTIP' | translate"
+              class="action-btn edit-btn"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="onDelete(seat)"
+              [matTooltip]="'SEATS.ACTIONS.DELETE_TOOLTIP' | translate"
+              class="action-btn delete-btn"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Header Row -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+      <!-- Data Rows -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" class="data-row"></tr>
+
+      <!-- No Data Row -->
+      <tr class="mat-row no-data-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+          <div class="no-data-content">
+            <mat-icon>inbox</mat-icon>
+            <p>
+              <ng-container *ngIf="request.search; else noDataDefault">
+                {{ 'SEATS.NO_DATA_FILTER' | translate }}
+              </ng-container>
+              <ng-template #noDataDefault>
+                {{ 'SEATS.NO_DATA' | translate }}
+              </ng-template>
+            </p>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Paginator -->
+    <div class="paginator-wrapper">
+      <app-fit-paginator-bar [vm]="this"></app-fit-paginator-bar>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,8 @@ public interface IAppDbContext
     DbSet<ProductEntity> Products { get; }
     DbSet<ProductCategoryEntity> ProductCategories { get; }
     DbSet<EventCategoryEntity> EventCategories { get; }
+    DbSet<SectorEntity> Sectors { get; }
+    DbSet<SeatEntity> Seats { get; }
     DbSet<SeatCategoryEntity> SeatCategories { get; }
     DbSet<CityEntity> Cities { get; }
     DbSet<VenueEntity> Venues { get; }

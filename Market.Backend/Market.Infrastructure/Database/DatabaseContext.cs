@@ -8,6 +8,8 @@ public partial class DatabaseContext : DbContext, IAppDbContext
 {
     public DbSet<ProductCategoryEntity> ProductCategories => Set<ProductCategoryEntity>();
     public DbSet<EventCategoryEntity> EventCategories => Set<EventCategoryEntity>();
+    public DbSet<SectorEntity> Sectors => Set<SectorEntity>();
+    public DbSet<SeatEntity> Seats => Set<SeatEntity>();
     public DbSet<SeatCategoryEntity> SeatCategories => Set<SeatCategoryEntity>();
     public DbSet<CityEntity> Cities => Set<CityEntity>();
     public DbSet<VenueEntity> Venues => Set<VenueEntity>();

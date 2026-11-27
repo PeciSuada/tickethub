@@ -15,6 +15,13 @@ public class DeleteVenueCommandHandler(IAppDbContext context, IAppCurrentUser ap
         if (venue is null)
             throw new MarketNotFoundException("Dvorana nije pronađena.");
 
+        var hasSectors = await context.Sectors
+            .AnyAsync(s => s.VenueId == venue.Id, cancellationToken);
+
+        if (hasSectors)
+            throw new MarketConflictException(
+                $"Dvorana {venue.Name} se ne mo\u017ee obrisati jer ima sektore. Prvo obri\u0161ite sektore.");
+
         context.Venues.Remove(venue);
         await context.SaveChangesAsync(cancellationToken);
 

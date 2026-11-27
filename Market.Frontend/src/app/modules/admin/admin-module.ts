@@ -8,6 +8,11 @@ import {AdminLayoutComponent} from './admin-layout/admin-layout.component';
 import {ProductCategoriesComponent} from './catalogs/product-categories/product-categories.component';
 import {EventCategoriesComponent} from './catalogs/event-categories/event-categories.component';
 import {EventCategoryUpsertComponent} from './catalogs/event-categories/event-category-upsert/event-category-upsert.component';
+import {SectorsComponent} from './catalogs/sectors/sectors.component';
+import {SectorUpsertComponent} from './catalogs/sectors/sector-upsert/sector-upsert.component';
+import {SeatsComponent} from './catalogs/seats/seats.component';
+import {SeatUpsertComponent} from './catalogs/seats/seat-upsert/seat-upsert.component';
+import {SeatGenerateComponent} from './catalogs/seats/seat-generate/seat-generate.component';
 import {SeatCategoriesComponent} from './catalogs/seat-categories/seat-categories.component';
 import {SeatCategoryUpsertComponent} from './catalogs/seat-categories/seat-category-upsert/seat-category-upsert.component';
 import {CitiesComponent} from './catalogs/cities/cities.component';
@@ -41,6 +46,11 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
     ProductCategoryUpsertComponent,
     EventCategoriesComponent,
     EventCategoryUpsertComponent,
+    SectorsComponent,
+    SectorUpsertComponent,
+    SeatsComponent,
+    SeatUpsertComponent,
+    SeatGenerateComponent,
     SeatCategoriesComponent,
     SeatCategoryUpsertComponent,
     CitiesComponent,
